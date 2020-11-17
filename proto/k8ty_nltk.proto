@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package app.k8ty.remote.nltk;
+option java_package = "app.k8ty.remote.nltk";
+
+enum Language {
+  english = 0;
+}
+
+message Config {
+  Language language = 1;
+}
+
+message Request {
+  repeated string data = 1;
+  Config config = 2;
+}
+
+message Response {
+  repeated string data = 1;
+}
+
+service K8tyNLTK {
+  rpc sentTokenize(Request) returns (Response);
+  rpc wordTokenize(Request) returns (Response);
+  rpc stem(Request) returns (Response);
+  rpc stopWords(Request) returns (Response);
+}
