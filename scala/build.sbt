@@ -12,5 +12,6 @@ libraryDependencies ++= Seq(
 
 PB.protoSources in Compile := Seq(file("../proto"))
 PB.targets in Compile := Seq(
-  scalapb.gen() -> (sourceManaged in Compile).value
+  scalapb.gen(grpc = true) -> (sourceManaged in Compile).value / "scalapb",
+  scalapb.zio_grpc.ZioCodeGenerator -> (sourceManaged in Compile).value / "scalapb",
 )
