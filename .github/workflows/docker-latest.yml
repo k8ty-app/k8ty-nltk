@@ -19,8 +19,7 @@ jobs:
           username: ${{ secrets.GHCR_USER }}
           password: ${{ secrets.GHCR }}
       - name: Build and push
-        id: docker_build
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: k8ty-app/k8ty-nltk:latest
+          tags: ghcr.io/k8ty-app/k8ty-nltk:latest
