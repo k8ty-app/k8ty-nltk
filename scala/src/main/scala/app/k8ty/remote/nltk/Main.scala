@@ -6,8 +6,7 @@ import io.grpc.ManagedChannelBuilder
 object Main extends App {
 
   val builder = ManagedChannelBuilder
-    .forAddress("localhost", 50051)
-  builder.usePlaintext()
+    .forAddress("nltk.k8ty.app", 443)
 
   val channel = builder.build()
   val blocker = K8tyNLTKGrpc.blockingStub(channel)
