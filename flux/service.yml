@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: k8ty-nltk
+  name: k8ty-nltk
+  namespace: k8ty-nltk
+spec:
+  type: ClusterIP
+  selector:
+    app: k8ty-nltk
+  ports:
+    - port: 50051
+      name: http
+      protocol: TCP
+      targetPort: http
